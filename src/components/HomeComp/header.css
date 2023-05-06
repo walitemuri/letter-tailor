@@ -9,6 +9,15 @@ header {
     margin-bottom: 12vh;
 }
 
+.green-layover {
+    padding: 20px;
+    width: 90%;
+    background: rgba(208, 243, 235, 0.417);
+    mix-blend-mode: multiply;
+    border-radius: 6px 6px 68px;
+    opacity: 0;
+}
+
 .main-title {
     font-size: 36px;
     color: var(--primary-color-variant);
@@ -18,24 +27,24 @@ header {
 .subheading-title {
     color: #68706e;
     font-size: 18px;
-    margin-top: 8px;
+    margin-top: 2px;
 }
 
 p {
-    font-size: 18px;
+    padding: 10px;
+    font-size: 2vh;
     margin-top: 20px;
     width: 500px;
-    line-height: 26px;
+    line-height: 2.3vh;
     color: var(--primary-gray);
 }
 
 article {
-    margin: 0 auto;
     display: flex;
     align-items: start;
     justify-content: center;
-    gap: 8rem;
-    width: 90%;
+    gap: 7rem;
+    width: 100%;
 }
 
 .main-article-container {
@@ -47,7 +56,7 @@ img {
 }
 
 .hero-img {
-    width: 36%;
+    width: 35vw;
     /* height: 524px; */
     transition: transform 1s ease-in-out;
     transform: translateX(-100%);
@@ -69,7 +78,8 @@ img:hover {
   }
 
 #signup {
-    margin-top: 2.2rem;
+    margin-left: 10px;
+    margin-top: 1.2rem;
 }
 span {
     color: black;
@@ -102,3 +112,30 @@ nav {
 .animate-main-article-container {
     transform: translateX(0);
 }
+
+@media screen and (max-width: 992px) {
+    article {
+        flex-direction: column;
+        flex-direction: column-reverse;
+        align-items: center;
+    }
+
+    img {
+        width:  45vh;
+    }
+}
+
+@keyframes brush-stroke {
+    from {
+      width: 0%;
+    }
+    to {
+      width: 85%;
+      opacity: 1;
+    }
+}
+
+.green-layover {
+    /* ...other existing styles */
+    animation: brush-stroke 1.15s forwards; /* Set the duration and fill mode */
+  }

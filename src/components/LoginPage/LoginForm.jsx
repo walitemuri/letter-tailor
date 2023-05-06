@@ -6,7 +6,8 @@ import qs from 'qs';
 
 const LoginForm = () => {
   const [animate, setAnimate] = useState(false);
-  
+  const [inputError, setInputError] = useState(false);
+
   useEffect(() => {
     const timer = setTimeout(() => {
       setAnimate(true);
@@ -20,12 +21,18 @@ const LoginForm = () => {
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
+
   const handleInputChange = (event, setStateFn) => {
+    setInputError(false);
     setStateFn(event.target.value);
   };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    if(!email || !password) {
+      setInputError(true);
+      return;
+    }
     try {
       const requestBody = qs.stringify({
         username: email,
@@ -47,6 +54,9 @@ const LoginForm = () => {
       localStorage.setItem("token", token);
       navigate("/generateLetter");
   } catch (error) {
+      if(error.response && error.response.status == 403 || error.response && error.response.status == 429) {
+        setInputError(true);
+      }
       console.error("Login Error:", error.response);
     }
   };
@@ -58,12 +68,13 @@ const LoginForm = () => {
                 <h4>Login</h4>
                 <a className='login-anchors' href="#">I dont have an account</a>
             </div>
-            <form onSubmit={handleSubmit}>
+            <form className='login-form' onSubmit={handleSubmit}>
                 <input 
                   type="email" 
                   placeholder='Email'
                   id='email'
                   value={email}
+                  className={inputError ? 'login-field input-error' : 'login-field'}
                   onChange={(event) => handleInputChange(event, setEmail)}  
                 />
                 <input 
@@ -71,6 +82,7 @@ const LoginForm = () => {
                   placeholder='Password' 
                   id='password'  
                   value={password}
+                  className={inputError ? 'login-field input-error' : 'login-field'}
                   onChange={(event) => handleInputChange(event, setPassword)}
                 />
                 <button type="submit" id="login-btn">Login</button>

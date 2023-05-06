@@ -25,7 +25,7 @@ const Header = () => {
 
   return (
     <div className="">
-      <header>
+      <header className="header-animation">
         <h3>LetterTailor</h3>
         <nav>
           <div className="nav-links">
@@ -46,8 +46,10 @@ const Header = () => {
             animate ? 'animate-main-article-container' : ''
           }`}
         >
+        <div className='green-layover'>
           <h1 className='main-title'>Create Compelling Cover Letters with <span>LetterTailor.</span></h1>
           <h4 className='subheading-title'>Supercharge your Job Search</h4>
+        </div>
           <p>
             Empower your job search with LetterTailor - the key to unlocking internships and opportunities in diverse fields, from Mathematics and Science to Engineering, Business, Accounting, and Finance. Don't let your dream opportunity slip away!
           </p>

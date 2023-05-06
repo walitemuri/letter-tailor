@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
+
+.main-container {
+    margin-top: -3.4rem;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    align-items: center;
+    gap: 15vh;
+    flex-wrap: wrap; /* Add this line to allow wrapping on smaller screens */
+    padding: 0 2%; /* Add padding to the sides of the main container */
+    /* height: 1400px; */
+  }
+   
+  .output-container {
+    width: 60vh;
+    height: 70vh;
+    mix-blend-mode: normal;
+    border: 1px solid #15C39A;
+    box-shadow: 0px 0px 25px 14px rgba(55, 48, 48, 0.12);
+    border-radius: 12px;
+    padding: 2%; /* Add padding inside the container */
+    font-size: 12px;
+  }
+  
+.information-container {
+    width: 55vh;
+    height: 60vh;
+    border: 1px solid #15C39A;
+    box-shadow: 0px 0px 25px 14px rgba(0, 0, 0, 0.12);
+    border-radius: 12px;
+    padding: 0vh 5vh; /* Add padding inside the container */
+    text-align: center;
+    font-size: 1.83vh;
+    position: relative;
+}
+h5 {
+  font-size: 1.4vh;
+  padding: 0.24vh;
+  color: var(--lighter-gray);
+}
+
+.info-title {
+  font-weight: 500;
+  color: var(--primary-gray);
+  font-size: 2vh;
+}
+  
+  /* Add a media query for smaller screens */
+  @media screen and (max-width: 992px) {
+    .information-container, .output-container {
+      width: 90%; /* Set a larger width for smaller screens */
+    }
+    .main-container {
+      flex-direction: column-reverse;
+    }
+
+    .output-container {
+      margin-bottom: 3vh;
+      padding: 3vh;
+    }
+  }
+  
+.address {
+  width: 20vh;
+  height: 4vh;
+  border: 0px;
+  box-shadow: inset 0px 0px 5px 2px rgba(0, 0, 0, 0.09);
+  border-radius: 4px;
+  padding: 1.3vh;
+  resize: none;
+  text-align: center;
+}
+
+.address:focus {
+  text-align: left;
+  line-height: normal;
+  border: 0.4px solid var(--primary-gray);
+}
+
+.address:focus::placeholder {
+  opacity: 0;
+}
+
+.job-desc {
+  margin-top: 2vh;
+  height: 34vh;
+  width: 95%;
+  resize: none;
+  border: 0px;
+  box-shadow: inset 0px 0px 5px 2px rgba(0, 0, 0, 0.09);
+  border-radius: 4px;
+  padding: 1.3vh;
+  text-align: center;
+  line-height: 25vh;
+}
+
+.job-desc:focus {
+  text-align: left;
+  line-height: normal;
+  border: 0.4px solid var(--primary-gray);
+}
+
+.job-desc:focus::placeholder {
+    opacity: 0;
+}
+
+.address-container {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 3vh;
+  width: 100%;
+}
+
+.typing-animation {
+  overflow: hidden;
+  white-space: nowrap;
+  animation: typing 4s steps(30, end) infinite;
+}
+
+.generate-container {
+  position: relative;
+  top: 105%;
+}
