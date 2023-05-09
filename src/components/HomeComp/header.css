@@ -72,7 +72,7 @@ img:hover {
 
 .main-article-container {
     /* Apply a transition effect */
-    transition: transform 1s ease-in-out;
+    transition: transform 1.5s ease-in-out;
     /* Initially, move the text to the right, off the screen */
     transform: translateX(100%);
   }
@@ -137,5 +137,5 @@ nav {
 
 .green-layover {
     /* ...other existing styles */
-    animation: brush-stroke 1.15s forwards; /* Set the duration and fill mode */
+    animation: brush-stroke 1.7s forwards; /* Set the duration and fill mode */
   }

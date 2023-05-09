@@ -3,11 +3,12 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './LoginForm.css'
 import qs from 'qs';
+import axiosInstance from '../../utils/axiosInstance';
 
 const LoginForm = () => {
   const [animate, setAnimate] = useState(false);
   const [inputError, setInputError] = useState(false);
-
+  
   useEffect(() => {
     const timer = setTimeout(() => {
       setAnimate(true);
@@ -16,6 +17,15 @@ const LoginForm = () => {
     return () => clearTimeout(timer);
   }, []);
 
+  useEffect(() => {
+    const checkAuthentication = async () => {
+      const response = await axiosInstance.post('/login/token/verify/');
+      if (response.data.valid) {
+        navigate('/generateLetter');
+      }
+    };
+    checkAuthentication();
+  }, []);
   //Login Form Handler
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
